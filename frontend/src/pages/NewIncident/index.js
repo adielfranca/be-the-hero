@@ -25,12 +25,12 @@ export default function NewIncident() {
             value,
         };
 
-        try {
-          await api.post('incidents', data, {
-            headers:{
-                Authorization: ongId, 
-            }
-          });
+    try {
+      await api.post('incidents', data, {
+        headers: {
+          Authorization: ongId,
+        }
+      })
 
           history.push('/profile');
 
@@ -45,34 +45,37 @@ export default function NewIncident() {
                 <section>
                     <img src={logoImg} alt="Be The Hero" />
 
-                    <h1>Cadastrar novo caso</h1>
-                    <p>Faça seu cadastro, entre na plataforma e ajude pessoas a encontrarem os casos da sua ONG</p>
-                    
-                    <Link className="back-link" to="/profile">
-                    <FiArrowLeft size={16} color ="#E02041" />
-                        Voltar para home
-                    </Link>                
-                </section>
-                <form onSubmit={handleNewIncident}>
-                 <input 
-                    placeholder="Titulo do caso" 
-                    value={title}
-                    onchange={e => setTitle(e.target.value)}
-                />
-                 <textarea 
-                    placeholder="Descrição" 
-                    value={description}
-                    onchange={e => setDescription(e.target.value)}
-                />
-                 <input 
-                    placeholder="Valor em reais" 
-                    value={value}
-                    onchange={e => setValue(e.target.value)}
-                />
-                 
-                 <button className="button" type="submit">Cadastrar</button>
-                </form>
-            </div>
-        </div>    
-    )
+          <h1>Cadastrar novo caso</h1>
+          <p>Descreva o caso detalhadamente para encontrar um herói para resolver isso.</p>
+
+          <Link className="back-link" to="/profile">
+            <FiArrowLeft size={16} color="#E02041" />
+            Voltar para home
+          </Link>
+        </section>
+
+        <form onSubmit={handleNewIncident}>
+          <input 
+            placeholder="Título do caso"
+            value={title}
+            onChange={e => setTitle(e.target.value)}
+          />
+
+          <textarea 
+            placeholder="Descrição"
+            value={description}
+            onChange={e => setDescription(e.target.value)}
+          />
+
+          <input 
+            placeholder="Valor em reais"
+            value={value}
+            onChange={e => setValue(e.target.value)}
+          />
+
+          <button className="button" type="submit">Cadastrar</button>
+        </form>
+      </div>
+    </div>
+  )
 }
